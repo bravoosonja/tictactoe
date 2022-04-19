@@ -7,4 +7,5 @@ Tic Tac Toe game in a browser. The objective of this project is to have as littl
 
 # Future plans
 - [ ] Refactor code
-- [ ] update README.md
+- [ ] Update README.md
+- [ ] Incorporate minimax algorithm for computer moves
