@@ -23,12 +23,24 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
+  margin: 0;
+}
+
+.message-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 800;
+  font-size: 36px;
+  padding: 2rem;
+  color: var(--border-color);
 }
 
 .container {
-  width: 75vh;
-  height: 75vh;
-  border: 4px solid var(--border-color);
+  width: auto;
+  height: 70%;
+  outline: 4px solid var(--border-color);
   background-color: var(--main-color);
   box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
     rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
@@ -42,7 +54,7 @@ body {
   background-color: var(--main-color);
   color: white;
   font: italic bold 80px "Playfair Display", Serif;
-  text-shadow: -4px 3px 0 var(--sub-color), -14px 7px 0 #0a0e27;
+  text-shadow: -4px 3px 0 var(--sub-color), -14px 7px 0 var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,4 +90,32 @@ body {
 
 .field:hover {
   background-color: var(--sub-color);
+}
+
+.btn-container {
+  padding: 2rem;
+}
+
+.btn {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: var(--border-color);
+  cursor: pointer;
+  border: 3px solid;
+  padding: 0.25em 0.5em;
+  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
+    5px 5px 0px 0px;
+  position: relative;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn:active {
+  box-shadow: 0px 0px 0px 0px;
+  top: 5px;
+  left: 5px;
 }
