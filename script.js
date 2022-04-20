@@ -1,33 +1,43 @@
 //module
 const gameBoard = (() => {
-  let board = [...Array(8).keys()];
+  let board = [...Array(9).keys()];
   
-  const _getField = () => { 
-    if (index > board.length) return;
-    return board[index];
+  const getField = (board) => { 
+    return board.keys;
   }
 
-  const _setField = (index, marker) => {   
-    if (index > board.length) return;
-    board[index] = marker;
+  const setField = (board, Player) => {   
+    board.value() = Player.marker;
   };
   
-  const _resetField = () => { 
+  const resetField = () => { 
     for (i = 0; i < board.length; i++) { 
-      board[i].values() = null;
+      board[i].values() = undefined;
     }
   }
+  return { getField, setField, resetField };
 })();
 
-//module
-const displayController = (() => {})();
-
 //factory
-const Player = (name, marker) => {
+function Player = (name, marker) => {
   const name = this.name;
   const marker = this.marker;
   return { name, marker };
 };
+
+const getPlayer = () => { 
+  document.getElementById("")
+
+}
+
+const setPlayer = () => { 
+
+}
+
+//module
+const displayController = (() => {})();
+
+
 
 
 
