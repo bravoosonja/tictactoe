@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
+
 * {
   margin: 0;
   padding: 0;
@@ -10,13 +12,14 @@
 :root {
   --light-gray: #f5f5f5;
   --dark-gray: #e5e5e5;
+  --accent-color: #6366f1;
   --main-color: #818cf8;
   --sub-color: #a5b4fc;
   --border-color: #404040;
 }
 
 body {
-  font-family: "Playfair Display", serif;
+  font-family: "Raleway", sans-serif;
   width: 100vw;
   height: 100vh;
   background-color: var(--dark-gray);
@@ -31,10 +34,10 @@ body {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-weight: 800;
+  font-weight: 500;
   font-size: 36px;
   padding: 2rem;
-  color: var(--border-color);
+  color: var(--accent-color);
 }
 
 .container {
@@ -51,15 +54,18 @@ body {
 }
 
 .title {
+  font-family: "Playfair Display", serif;
   background-color: var(--main-color);
   color: white;
-  font: italic bold 80px "Playfair Display", Serif;
+  font: italic bold 60px "Playfair Display", Serif;
   text-shadow: -4px 3px 0 var(--sub-color), -14px 7px 0 var(--border-color);
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 2rem;
+  padding: auto 2rem;
+  height: auto;
+  width: auto;
 }
 
 .gameboard {
@@ -98,7 +104,7 @@ body {
 
 .btn {
   font-size: 22px;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: 2px;
   text-decoration: none;
   text-transform: uppercase;
