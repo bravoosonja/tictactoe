@@ -14,10 +14,12 @@ const gameBoard = (() => {})();
 const displayController = (() => {})();
 
 const message = document.querySelector("#message");
+const fields = document.querySelectorAll(".field");
+const restartBtn = document.querySelector("#restart-btn");
 
-let gameActive = true;
+let isGameActive = true;
 let currentPlayer = "❌";
-let gameState = ["", "", "", "", "", "", "", "", ""];
+let board = ["", "", "", "", "", "", "", "", ""];
 
 const winningMessage = () => `Player ${currentPlayer} has won!`;
 const drawMessage = () => `Game ended in a draw!`;
@@ -36,9 +38,9 @@ const winningConditions = [
   [2, 4, 6],
 ];
 
-function handleCellPlayed(clickedCell, clickedCellIndex) {
-  gameState[clickedCellIndex] = currentPlayer;
-  clickedCell.innerHTML = currentPlayer;
+function handleFieldPlayed(clickedField, clickedFieldIndex) {
+  board[clickedFieldIndex] = currentPlayer;
+  clickedField.innerHTML = currentPlayer;
 }
 
 function handlePlayerChange() {
@@ -50,9 +52,9 @@ function handleResultValidation() {
   let roundWon = false;
   for (let i = 0; i <= 7; i++) {
     const winCondition = winningConditions[i];
-    let a = gameState[winCondition[0]];
-    let b = gameState[winCondition[1]];
-    let c = gameState[winCondition[2]];
+    let a = board[winCondition[0]];
+    let b = board[winCondition[1]];
+    let c = board[winCondition[2]];
     if (a === "" || b === "" || c === "") {
       continue;
     }
@@ -64,45 +66,39 @@ function handleResultValidation() {
 
   if (roundWon) {
     message.innerHTML = winningMessage();
-    gameActive = false;
+    isGameActive = false;
     return;
   }
 
-  let roundDraw = !gameState.includes("");
+  let roundDraw = !board.includes("");
   if (roundDraw) {
     message.innerHTML = drawMessage();
-    gameActive = false;
+    isGameActive = false;
     return;
   }
 
   handlePlayerChange();
 }
 
-function handleCellClick(clickedCellEvent) {
-  const clickedCell = clickedCellEvent.target;
-  const clickedCellIndex = parseInt(clickedCell.getAttribute("data-index"));
+function handleFieldClick(clickedFieldEvent) {
+  const clickedField = clickedFieldEvent.target;
+  const clickedFieldIndex = parseInt(clickedField.getAttribute("data-index"));
 
-  if (gameState[clickedCellIndex] !== "" || !gameActive) {
+  if (board[clickedFieldIndex] !== "" || !isGameActive) {
     return;
   }
 
-  handleCellPlayed(clickedCell, clickedCellIndex);
+  handleFieldPlayed(clickedField, clickedFieldIndex);
   handleResultValidation();
 }
 
 function handleRestartGame() {
-  gameActive = true;
+  isGameActive = true;
   currentPlayer = "❌";
-  gameState = ["", "", "", "", "", "", "", "", ""];
+  board = ["", "", "", "", "", "", "", "", ""];
   message.innerHTML = currentPlayerTurn();
-  document
-    .querySelectorAll(".field")
-    .forEach((field) => (field.innerHTML = ""));
+  fields.forEach((field) => (field.innerHTML = ""));
 }
 
-document
-  .querySelectorAll(".field")
-  .forEach((field) => field.addEventListener("click", handleCellClick));
-document
-  .querySelector("#restart-btn")
-  .addEventListener("click", handleRestartGame);
+fields.forEach((field) => field.addEventListener("click", handleFieldClick));
+restartBtn.addEventListener("click", handleRestartGame);
