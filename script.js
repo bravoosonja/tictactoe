@@ -1,3 +1,10 @@
+//gameBoard - module
+const gameBoard = (() => {})();
+//displayController - module
+const displayController = (() => {})();
+//player - factory
+const player = () => {};
+
 const message = document.querySelector("#message");
 
 let gameActive = true;
