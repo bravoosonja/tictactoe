@@ -11,55 +11,35 @@
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,800;1,800&display=swap"
       rel="stylesheet"
     />
-    <script src="https://kit.fontawesome.com/5d5f791f69.js" crossorigin="anonymous"></script>
+    <script
+      src="https://kit.fontawesome.com/5d5f791f69.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
   </head>
   <body>
     <div class="grid">
-      <div class="message-container" id="message-container">Player's Turn</div>
-      <div class="player-one">
-        <form action="#" class="player-info-form">
-          <label for="player1-name">Player 1 Name</label>
-          <input type="text" name="player1-name" id="player1-name"/>
-          <label for="player1-marker">Player 1 Marker</label>
-          <div class="marker-btn-group">
-            <button class="o"><i class="fa-solid fa-o"></i></button>
-            <button class="x"><i class="fa-solid fa-x"></i></button>
-          </div>
-          <button type="submit" class="submit-btn">Submit</button>
-        </form>
+      <div class="title">Tic Tac Toe</div>
+      <div class="message-container" id="message-container">
+        <h2 class="message" id="message"></h2>
       </div>
       <div class="gameboard-container">
-         <div class="title">Tic Tac Toe</title>
-            <div class="gameboard" id="gameboard">
-                   <div class="field" data-index="0"></div>
-                    <div class="field" data-index="1"></div>
-                    <div class="field" data-index="2"></div>
-                    <div class="field" data-index="3"></div>
-                    <div class="field" data-index="4"></div>
-                    <div class="field" data-index="5"></div>
-                    <div class="field" data-index="6"></div>
-                    <div class="field" data-index="7"></div>
-                    <div class="field" data-index="8"></div>
-              </div>
-          </div>
-      </div>
-      <div class="player-two">
-        <form action="#" class="player-info-form">
-          <label for="player2-name">Player 2 Name</label>
-          <input type="text" name="player2-name" id="player2-name"/>
-          <label for="player2-marker">Player 2 Marker</label>
-          <div class="marker-btn-group">
-            <button class="o"><i class="fa-solid fa-o"></i></button>
-            <button class="x"><i class="fa-solid fa-x"></i></button>
-          </div>
-          <button type="submit" class="submit-btn">Submit</button>
-        </form>
-      </div>
-        <div class="btn-container">
-            <button class="btn">Start</button>
+        <div class="gameboard" id="gameboard">
+          <div class="field" data-index="0"></div>
+          <div class="field" data-index="1"></div>
+          <div class="field" data-index="2"></div>
+          <div class="field" data-index="3"></div>
+          <div class="field" data-index="4"></div>
+          <div class="field" data-index="5"></div>
+          <div class="field" data-index="6"></div>
+          <div class="field" data-index="7"></div>
+          <div class="field" data-index="8"></div>
         </div>
-        </div>
+      </div>
+      <div class="btn-container">
+        <button class="btn" id="restart-btn">Restart</button>
+      </div>
+    </div>
   </body>
 </html>

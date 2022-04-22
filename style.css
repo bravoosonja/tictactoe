@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap");
-
 * {
   margin: 0;
   padding: 0;
@@ -19,170 +17,124 @@
 }
 
 body {
-  font-family: "Raleway", sans-serif;
+  font-family: "Playfair Display", serif;
   width: 100%;
   height: 100%;
-  background-color: var(--dark-gray);
+  background-color: var(--main-color);
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: row;
-  margin: none;
+  flex-direction: column;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  grid-template-rows: auto;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  grid-template-rows: 1fr 2fr 1fr;
+  grid-template-columns: auto;
   grid-template-areas:
-    "message-container message-container message-container"
-    "player-one gameboard-container player-two"
-    "btn-container btn-container btn-container";
-  gap: 1rem;
-  margin: none;
+    "title"
+    "message-container"
+    "gameboard-container"
+    "btn-container";
+  gap: 2rem;
+  padding: 2rem;
 }
 
-.message-container {
-  grid-area: message-container;
-  font-weight: 500;
-  font-size: 36px;
-  color: var(--accent-color);
-}
-
+.title,
 .message-container,
+.gameboard-container,
 .btn-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
-}
-
-.player-info-form,
-.marker-btn-group {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.player-info-form {
   flex-direction: column;
-  font-weight: 500;
+  padding: 10px;
+}
+
+.title {
+  grid-area: title;
   font-family: "Playfair Display", serif;
-  font-size: 3vh;
-  padding: 0.5rem;
-  gap: 1.5rem;
-}
-
-input[type="text"] {
-  outline: 3px solid var(--accent-color);
-  width: 75%;
-  padding: 0.5rem;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
-}
-
-.marker-btn-group {
-  flex-direction: row;
-  gap: 2rem;
-}
-
-.player-one {
-  grid-area: player-one;
-}
-
-.o,
-.x {
-  font-size: 3em;
-  padding: 1rem;
-  background-color: var(--sub-color);
+  font-size: 5vh;
+  background-color: var(--main-color);
   color: white;
-  border-radius: 10px;
-  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+  font: italic bold 60px "Playfair Display", Serif;
+  text-shadow: -4px 3px 0 var(--sub-color), -14px 7px 0 var(--border-color);
 }
 
-.o:hover,
-.x:hover {
-  background-color: var(--accent-color);
-}
-
-.submit-btn {
-  background: #5e5df0;
-  border-radius: 999px;
-  box-shadow: #5e5df0 0 10px 20px -10px;
-  box-sizing: border-box;
-  color: #ffffff;
+.btn {
+  display: flex;
+  align-items: center;
+  font-family: inherit;
+  font-weight: 300;
+  font-size: 1.8vh;
+  font-style: italic;
+  padding: 0.7em 1.4em 0.7em 1.1em;
+  color: white;
+  background: #ad5389;
+  background: linear-gradient(
+    0deg,
+    var(--accent-color) 0%,
+    var(--sub-color) 100%
+  );
+  border: none;
+  box-shadow: 0 0.7em 1.5em -0.5em var(--border-color);
+  letter-spacing: 0.05em;
+  border-radius: 20em;
   cursor: pointer;
-  font-family: "Playfair Display", serif;
-  font-size: 3vh;
-  font-weight: 500;
-  line-height: 24px;
-  opacity: 1;
-  outline: 0 solid transparent;
-  padding: 8px 18px;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
-  width: fit-content;
-  word-break: break-word;
-  border: 0;
-  margin-top: 1rem;
 }
 
-.player-one,
-.player-two {
-  background-color: var(--light-gray);
-  box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
+.btn:hover {
+  box-shadow: 0 0.5em 1.5em -0.5em var(--accent-color);
 }
 
-.player-one,
-.player-two,
-.gameboard-container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  justify-content: center;
-  padding: 1rem;
-  outline: 4px solid var(--border-color);
-  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
-    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
-  height: 60vh;
-  width: auto;
-  margin: 20px;
+.btn:active {
+  box-shadow: 0 0.3em 1em -0.5em var(--accent-color);
 }
 
 .gameboard-container {
   grid-area: gameboard-container;
   background-color: var(--main-color);
+  padding: 1rem;
+  height: auto;
+  width: auto;
 }
 
-.title {
-  font-family: "Playfair Display", serif;
-  background-color: var(--main-color);
+.message-container {
+  grid-area: message-container;
+  font-weight: 500;
+  font-size: 4vh;
+  color: var(--light-gray);
+}
+
+.message,
+.gameboard {
   color: white;
-  font: italic bold 60px "Playfair Display", Serif;
-  text-shadow: -4px 3px 0 var(--sub-color), -14px 7px 0 var(--border-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+  color: transparent;
+  text-shadow: 0 0 0 white;
 }
 
 .gameboard {
   display: grid;
   align-items: center;
   justify-content: center;
-  grid-auto-columns: 1fr;
-  grid-auto-rows: 1fr;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, 1fr);
-  padding: 10px;
+  grid-template-columns: repeat(3, 2fr);
+  grid-template-rows: repeat(3, 2fr);
   gap: none;
   overflow: hidden;
   margin: 0;
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
 .field {
-  width: 15vh;
-  height: 15vh;
+  width: 17vh;
+  height: 17vh;
   outline: 7px solid var(--sub-color);
   background-color: var(--main-color);
   font-size: 100px;
@@ -194,36 +146,4 @@ input[type="text"] {
 
 .field:hover {
   background-color: var(--sub-color);
-}
-
-.player-two {
-  grid-area: player-two;
-}
-
-.btn-container {
-  grid-area: btn-container;
-}
-
-.btn {
-  font-size: 22px;
-  font-weight: 500;
-  letter-spacing: 2px;
-  text-decoration: none;
-  text-transform: uppercase;
-  color: var(--border-color);
-  cursor: pointer;
-  border: 3px solid;
-  padding: 0.25em 0.5em;
-  box-shadow: 1px 1px 0px 0px, 2px 2px 0px 0px, 3px 3px 0px 0px, 4px 4px 0px 0px,
-    5px 5px 0px 0px;
-  position: relative;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-}
-
-.btn:active {
-  box-shadow: 0px 0px 0px 0px;
-  top: 5px;
-  left: 5px;
 }

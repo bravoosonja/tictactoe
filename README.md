@@ -4,6 +4,7 @@ Tic Tac Toe game in a browser. The objective of this project is to have as littl
 # Skills used
 
 # Lessons learned
+* Players' markers were initially designed as buttons, but since they can only choose either one of the buttons, changed to radio buttons.
 
 # Future plans
 - [ ] Incorporate minimax algorithm for computer moves
