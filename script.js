@@ -1,9 +1,17 @@
+"use strict";
+//player - factory
+const player = (marker) => {
+  this.marker = marker;
+  const getMarker = () => {
+    return marker;
+  };
+  return { getMarker };
+};
+
 //gameBoard - module
 const gameBoard = (() => {})();
 //displayController - module
 const displayController = (() => {})();
-//player - factory
-const player = () => {};
 
 const message = document.querySelector("#message");
 
