@@ -29,31 +29,39 @@ body {
 
 .grid {
   display: grid;
-  height: 90vh;
+  height: 95vh;
   justify-content: center;
   align-items: center;
-  grid-template-rows: 1fr 2fr 1fr;
-  grid-template-columns: auto;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 1fr 2fr 1fr;
   grid-template-areas:
-    "title"
-    "message-container"
-    "gameboard-container"
-    "btn-container";
-  gap: 2rem;
-  padding: 2rem;
+    ". title ."
+    ". message-container ."
+    "player1 gameboard-container player2"
+    ". btn-container .";
+  gap: 1rem;
+  padding: 1rem;
 }
 
 .title,
 .message-container,
-.gameboard-container,
-.btn-container {
+.gameboard-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding: 10px;
+  padding: auto;
 }
 
+.btn-container {
+  grid-area: btn-container;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: auto;
+  gap: 1rem;
+}
 .title {
   grid-area: title;
   font-family: "Playfair Display", serif;
@@ -62,6 +70,21 @@ body {
   color: white;
   font: italic bold 60px "Playfair Display", Serif;
   text-shadow: -4px 3px 0 var(--sub-color), -14px 7px 0 var(--border-color);
+}
+
+.player-name-container {
+  color: white;
+  gap: 10px;
+  font-size: 14px;
+}
+
+input[type="text"] {
+  width: 15vw;
+  padding: 5px;
+  border: solid 2px var(--border-color);
+  border-radius: 5px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 }
 
 .btn {
@@ -100,7 +123,7 @@ body {
 .gameboard-container {
   grid-area: gameboard-container;
   background-color: var(--main-color);
-  padding: 1rem;
+
   height: auto;
   width: auto;
 }
@@ -108,12 +131,15 @@ body {
 .message-container {
   grid-area: message-container;
   font-weight: 500;
-  font-size: 4vh;
+  font-size: 3vh;
   color: var(--light-gray);
 }
 
 .message,
-.gameboard {
+.gameboard,
+.player-name-form,
+.player1,
+.player2 {
   color: white;
   color: transparent;
   text-shadow: 0 0 0 white;
@@ -146,4 +172,55 @@ body {
 
 .field:hover {
   background-color: var(--sub-color);
+}
+
+.modal {
+  position: fixed;
+  z-index: 1;
+  top: 50%;
+  left: 50%;
+  width: 40vw;
+  height: auto;
+  border-radius: 7px;
+  background-color: var(--sub-color);
+  text-align: center;
+  transform: translate(-50%, -50%) scale(0);
+  transition: 0.2s ease-in-out;
+  box-shadow: rgba(0, 0, 0, 0.4) 0px 30px 90px;
+  padding: 0.5rem;
+}
+.modal.active {
+  transform: translate(-50%, -50%) scale(1);
+}
+
+.modal-content {
+  padding: 1rem;
+}
+
+.player-name-form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+  font-size: 1.5rem;
+}
+
+.player1 {
+  grid-area: player1;
+}
+
+.player2 {
+  grid-area: player2;
+}
+
+.player1,
+.player2 {
+  background-color: var(--main-color);
+  padding: 0.5rem;
+  height: auto;
+  width: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
